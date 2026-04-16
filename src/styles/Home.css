@@ -1,0 +1,16 @@
+.home {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeTitle {
+  border: 2px solid white;
+  border-radius: 0.2rem;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
