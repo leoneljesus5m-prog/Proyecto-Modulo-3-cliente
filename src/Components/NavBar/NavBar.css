@@ -1,0 +1,45 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem 2rem;
+    background: transparent;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    user-select: none;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-left: 1rem;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0.1rem;
+    background: #fff;
+    top: 100%;
+    left: 0;
+    transition: all .3s ease;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
