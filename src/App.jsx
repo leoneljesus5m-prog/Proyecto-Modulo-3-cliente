@@ -1,11 +1,14 @@
-import React from 'react'
-import './styles/App.css'
-import Home from './views/Home'
+import './App.css'
+import Home from './views/Home/Home'
+import NavBar from './Components/Navbar/NavBar'
+import MisTurnos from './views/MisTurnos/MisTurnos'
 
 const App = () => {
   return (
     <div>
-      <Home />
+      <NavBar />
+      <MisTurnos />
+      {/* <Home /> */}
     </div>
   )
 }
