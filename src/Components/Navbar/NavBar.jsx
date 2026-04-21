@@ -6,10 +6,10 @@ const NavBar = () => {
       <a href="/" className="logo">Logo</a>
       <nav className="navbar">
         <a href="/">Home</a>
-        <a href="/">Appointments</a>
-        <a href="/">Contact</a>
+        <a href="/">Turnos</a>
+        <a href="/">Contacto</a>
         <a href="/">About</a>
-        <a href="/">Login</a>
+        <a href="/">Register/Login</a>
       </nav>
     </header>
   );
