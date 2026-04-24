@@ -1,0 +1,70 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 50rem;
+  height: 50rem;
+  margin: 0 auto;
+  color: white;
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 2px solid white;
+  border-radius: 1.1rem;
+  gap: 0.2rem;
+}
+
+.formContainer label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-top: 0.5rem;
+  margin-bottom: 0.7rem;
+  border-bottom: 2px solid white;
+}
+
+.inputs {
+  border: transparent;
+  background-color: transparent;
+  border-bottom: 2px white;
+  border-style: solid;
+  padding: 0.7rem;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  outline: none;
+  transition: all 0.5s linear;
+}
+
+.inputs:focus {
+  border-color: white;
+  border-bottom: 2px solid white;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.errorContainer {
+    border-bottom: 2px red;
+    margin-top: .5rem;
+    color: #d90429;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btnForm {
+  margin-top: 1.1rem;
+  padding: 0.7rem;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s linear;
+}
+
+.btnForm:hover {
+  background-color: white;
+  color: black;
+  mix-blend-mode: screen;
+}
