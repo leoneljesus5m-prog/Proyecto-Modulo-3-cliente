@@ -62,11 +62,13 @@
 }
 
 .errorContainer {
+  display: flex;
   border-bottom: 2px red;
   margin-top: 0.5rem;
   color: #d90429;
   font-size: 1.1rem;
   font-weight: 600;
+  width: 80%;
 }
 
 .btnForm {
