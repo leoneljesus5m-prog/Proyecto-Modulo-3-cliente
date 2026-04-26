@@ -32,3 +32,7 @@ export const registerSchema = Yup.object({
       "La contraseña debe contener al menos una letra y un número",
     ),
 });
+
+export const loginSchema = Yup.object({
+  
+})

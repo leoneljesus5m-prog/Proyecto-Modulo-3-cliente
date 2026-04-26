@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { registerSchema } from "../../schemas";
 import classes from "./Register.module.css";
-import axios from "axios"
+import axios from "axios";
 
 const initialValues = {
   name: "",
@@ -14,14 +14,14 @@ const initialValues = {
 
 const onSubmit = async (values, actions) => {
   try {
-    const { dni, ...restOfValues } = values
+    const { dni, ...restOfValues } = values;
     const dataToSend = {
       ...restOfValues,
-      nDni: Number(dni)
-    }
-    const response = await axios.post("http://localhost:3000/users/register", dataToSend)
-    alert("Registro exitoso!")
-    actions.resetForm()
+      nDni: Number(dni),
+    };
+    await axios.post("http://localhost:3000/users/register", dataToSend);
+    alert("Registro exitoso!");
+    actions.resetForm();
   } catch (error) {
     console.error("Error en el registro:", error);
     alert(error.response?.data?.message || "Hubo un problema con el registro");
@@ -38,6 +38,7 @@ export default function Register() {
       >
         {({ errors, touched }) => (
           <Form className={classes.formContainer}>
+            <h1 className={classes.loginLabel}>Registro</h1>
             <div className={classes.inputGroup}>
               <label htmlFor="name">Nombre</label>
               <Field
