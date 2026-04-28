@@ -1,6 +1,8 @@
 import * as Yup from "yup";
 
 const passwordRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+const tomorrow = new Date();
+tomorrow.setHours(0, 0, 0, 0);
 
 export const registerSchema = Yup.object({
   name: Yup.string()
@@ -45,5 +47,20 @@ export const loginSchema = Yup.object({
     .matches(
       passwordRegEx,
       "La contraseña debe contener al menos una letra y un número",
+    ),
+});
+
+export const scheduleSchema = Yup.object({
+  date: Yup.date()
+    .required("La fecha es obligatoria")
+    .min(
+      tomorrow,
+      "El turno debe ser programado con al menos un día de anticipación",
+    ),
+  time: Yup.string()
+    .required("La hora es obligatoria")
+    .matches(
+      /^([01]\d|2[0-3]):?([0-5]\d)$/,
+      "Formato de hora inválido (HH:mm)",
     ),
 });

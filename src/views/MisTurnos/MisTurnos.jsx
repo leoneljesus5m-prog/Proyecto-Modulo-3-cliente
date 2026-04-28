@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 import Turno from "../../Components/Turno/Turno";
-import { getApps } from "../../helpers";
 
 export default function MisTurnos() {
   const [Turnos, setTurnos] = useState([]);
 
   useEffect(() => {
-    return async () => {
-      const response = await getApps();
-      setTurnos(response);
-    }
+    const getTurnos = async () => {
+      try {
+        const response = await axios("http://localhost:3000/appointments/");
+        console.log(response.data)
+        setTurnos(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    };
+    getTurnos()
   }, [])
 
   return (

@@ -1,0 +1,94 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  width: 60rem;
+  min-height: 35rem;
+  margin: 0 auto;
+  color: white;
+  margin-top: 3rem;
+  padding: 2rem;
+  border: 2px solid white;
+  border-radius: 1.1rem;
+  gap: 2rem;
+}
+
+.formContainer label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-top: 0.5rem;
+  margin-bottom: 0.7rem;
+  margin-top: 1rem;
+  width: 80%;
+  text-align: left;
+}
+
+.formContainer h1 {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.inputs {
+  border: transparent;
+  background-color: transparent;
+  border-bottom: 2px white;
+  border-style: solid;
+  padding: 0.7rem;
+  color: white;
+  font-weight: 500;
+  font-size: 1.5rem;
+  outline: none;
+  width: 80%;
+  transition: all 0.5s linear;
+  margin: 0 auto;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs:focus {
+  border-color: white;
+  border-bottom: 2px solid white;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.errorContainer {
+  display: flex;
+  border-bottom: 2px red;
+  margin-top: 0.5rem;
+  color: #d90429;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 80%;
+}
+
+.btnForm {
+  grid-column: span 2;
+  justify-self: center;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  padding: 0.6rem;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: all 0.3s linear;
+}
+
+.btnForm:hover {
+  background-color: white;
+  color: black;
+  mix-blend-mode: screen;
+}
