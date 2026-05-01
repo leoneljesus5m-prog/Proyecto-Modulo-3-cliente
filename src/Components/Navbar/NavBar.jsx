@@ -1,18 +1,34 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./NavBar.css";
 
 const NavBar = () => {
+  const userData = useSelector((state) => state.user.userData);
   return (
     <header className="header">
-      <Link to="/home" className="logo">Logo</Link>
+      <Link to="/home" className="logo">
+        Logo
+      </Link>
       <nav className="navbar">
         <Link to="/home">Home</Link>
-        <Link to="/appointment">Turnos</Link>
-        <Link to="/appointment/schedule">Agendar Turno</Link>
+        {userData && (
+          <>
+            <Link to="/appointment">Turnos</Link>
+            <Link to="/appointment/schedule">Agendar Turno</Link>
+          </>
+        )}
         <Link to="*">Contacto</Link>
         <Link to="*">About</Link>
-        <Link to="/">Login</Link>
-        <Link to="/register">Register</Link>
+        {userData ? (
+          <span className="userLogged">
+            Hola, <strong>{userData.name}</strong>
+          </span>
+        ) : (
+          <>
+            <Link to="/">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
       </nav>
     </header>
   );

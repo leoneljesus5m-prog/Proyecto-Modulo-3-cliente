@@ -1,5 +1,6 @@
 import { Formik, Form, Field } from "formik";
 import { scheduleSchema } from "../../schemas";
+import { useSelector } from "react-redux";
 import styles from "./Schedule.module.css";
 import axios from "axios";
 
@@ -8,19 +9,31 @@ const initialValues = {
   time: "",
 };
 
-const onSubmit = async (values, actions) => {
-  try {
-    const dataToSend = values;
-    await axios.post("http://localhost:3000/appointments/schedule", dataToSend);
-    alert("Su turno fue agendado!!");
-    actions.resetForm();
-  } catch (error) {
-    console.error("Error al agendar el turno:", error);
-    alert(error.response?.data?.message || "Hubo un error al agendar el turno");
-  }
-};
-
 export default function Schedule() {
+  const userId = useSelector((state) => state.user.userData);
+
+  const onSubmit = async (values, actions) => {
+    try {
+      const dataToSend = values;
+      const userAppointment = {
+        ...dataToSend,
+        user: userId.id
+      }
+      console.log(userAppointment)
+      await axios.post(
+        "http://localhost:3000/appointments/schedule",
+        userAppointment,
+      );
+      alert("Su turno fue agendado!!");
+      actions.resetForm();
+    } catch (error) {
+      console.error("Error al agendar el turno:", error);
+      alert(
+        error.response?.data?.message || "Hubo un error al agendar el turno",
+      );
+    }
+  };
+
   return (
     <div>
       <Formik

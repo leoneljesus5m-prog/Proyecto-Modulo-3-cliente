@@ -1,5 +1,7 @@
 import { Formik, Form, Field } from "formik";
 import { loginSchema } from "../../schemas";
+import { useDispatch } from "react-redux";
+import { setUserData } from "../../redux/slices";
 import classes from "./Login.module.css";
 import axios from "axios";
 
@@ -8,19 +10,27 @@ const initialValues = {
   password: "",
 };
 
-const onSubmit = async (values, actions) => {
-    try {
-        const dataToSend = values;
-        await axios.post("http://localhost:3000/users/login", dataToSend)
-        alert("Inicio de sesión exitoso!!")
-        actions.resetForm()
-    } catch (error) {
-        console.error("Error al iniciar sesión:", error);
-        alert(error.response?.data?.message || "Hubo un error al iniciar sesión")
-    }
-}
-
 export default function Login() {
+  const dispatch = useDispatch();
+
+  const onSubmit = async (values, actions) => {
+  try {
+    const dataToSend = values;
+    const response = await axios.post("http://localhost:3000/users/login", dataToSend);
+    const userId = response.data;
+    const userToSave = {
+      id: userId,
+      name: values.username
+    }
+    dispatch(setUserData(userToSave));
+    alert("Inicio de sesión exitoso!!");
+    actions.resetForm();
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+    alert(error.response?.data?.message || "Hubo un error al iniciar sesión");
+  }
+};
+
   return (
     <div>
       <Formik

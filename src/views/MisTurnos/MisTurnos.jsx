@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import Turno from "../../Components/Turno/Turno";
 
 export default function MisTurnos() {
   const [Turnos, setTurnos] = useState([]);
+  const userId = useSelector((state) => state.user.userData)
 
   useEffect(() => {
     const getTurnos = async () => {
