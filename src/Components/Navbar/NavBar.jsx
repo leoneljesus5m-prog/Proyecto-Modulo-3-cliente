@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./NavBar.css";
+import { useState } from "react";
 
 const NavBar = () => {
-  const userData = useSelector((state) => state.user.userData);
+  // const userData = useSelector((state) => state.user.userData);
+  const [userData] = useState(() => {
+    const storedUserData = window.localStorage.getItem("userId");
+    if (storedUserData && storedUserData !== "undefined") {
+      return JSON.parse(storedUserData);
+    }
+    return undefined;
+  });
   return (
     <header className="header">
       <Link to="/home" className="logo">

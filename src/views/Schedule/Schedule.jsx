@@ -10,14 +10,20 @@ const initialValues = {
 };
 
 export default function Schedule() {
-  const userId = useSelector((state) => state.user.userData);
+  // const userIdRedux = useSelector((state) => state.user.userData);
+  // console.log(userId);
 
   const onSubmit = async (values, actions) => {
     try {
+      const userId = window.localStorage.getItem("userId");
+      const parsedUserId = JSON.parse(userId);
+      console.log("Parsed User ID:", parsedUserId);
+      const convertedUserId = parseInt(parsedUserId.id.id, 10);
+      console.log("Converted User ID:", convertedUserId);
       const dataToSend = values;
       const userAppointment = {
         ...dataToSend,
-        user: userId.id
+        userId: convertedUserId,
       }
       console.log(userAppointment)
       await axios.post(

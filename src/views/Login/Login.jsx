@@ -24,7 +24,9 @@ export default function Login() {
     }
     dispatch(setUserData(userToSave));
     alert("Inicio de sesión exitoso!!");
+    window.localStorage.setItem("userId", JSON.stringify(userToSave));
     actions.resetForm();
+    window.location.href = "/appointment";
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
     alert(error.response?.data?.message || "Hubo un error al iniciar sesión");

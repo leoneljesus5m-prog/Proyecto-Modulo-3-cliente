@@ -4,34 +4,39 @@ import axios from "axios";
 import Turno from "../../Components/Turno/Turno";
 
 export default function MisTurnos() {
-  const [Turnos, setTurnos] = useState([]);
-  const userId = useSelector((state) => state.user.userData)
+  const [turnos, setTurnos] = useState([]);
+  const [userInfo, setUserInfo] = useState(null);
+  const userId = JSON.parse(window.localStorage.getItem("userId"));
+  const id = userId ? userId.id.id : null;
 
   useEffect(() => {
     const getTurnos = async () => {
       try {
-        const response = await axios("http://localhost:3000/appointments/");
-        console.log(response.data)
-        setTurnos(response.data)
+        const response = await axios(
+          `http://localhost:3000/appointments/${id}`,
+        );
+        const data = response.data;
+        setUserInfo(data);
+        setTurnos(data.appointments || []);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
-    getTurnos()
-  }, [])
+    getTurnos();
+  }, [id]);
 
   return (
     <div>
-      {Turnos.map((turno) => {
+      {turnos.map((turno, id) => {
         return (
           <Turno
             key={turno.id}
-            id={turno.id}
+            id={id + 1}
             date={turno.date}
             time={turno.time}
             status={turno.status}
-            name={turno.user.name}
-            username={turno.user.credential.username}
+            name={userInfo?.name}
+            username={userId?.name}
           />
         );
       })}
