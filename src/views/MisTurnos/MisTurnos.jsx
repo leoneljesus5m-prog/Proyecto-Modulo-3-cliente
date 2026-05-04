@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState, setError } from "react";
+// import { useSelector } from "react-redux";
 import axios from "axios";
 import Turno from "../../Components/Turno/Turno";
 
@@ -7,18 +7,21 @@ export default function MisTurnos() {
   const [turnos, setTurnos] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const userId = JSON.parse(window.localStorage.getItem("userId"));
-  const id = userId ? userId.id.id : null;
+  const id = userId ? userId.id : null;
 
   useEffect(() => {
     const getTurnos = async () => {
       try {
+        if (!id) return;
         const response = await axios(
           `http://localhost:3000/appointments/${id}`,
         );
         const data = response.data;
+        if (!data) return;
         setUserInfo(data);
         setTurnos(data.appointments || []);
       } catch (error) {
+        setError(error);
         console.log(error);
       }
     };

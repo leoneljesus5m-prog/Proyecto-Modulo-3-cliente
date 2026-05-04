@@ -17,7 +17,7 @@ export default function Login() {
   try {
     const dataToSend = values;
     const response = await axios.post("http://localhost:3000/users/login", dataToSend);
-    const userId = response.data;
+    const userId = response.data.id;
     const userToSave = {
       id: userId,
       name: values.username

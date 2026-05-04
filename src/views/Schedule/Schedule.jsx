@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from "formik";
 import { scheduleSchema } from "../../schemas";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import styles from "./Schedule.module.css";
 import axios from "axios";
 
@@ -18,7 +18,7 @@ export default function Schedule() {
       const userId = window.localStorage.getItem("userId");
       const parsedUserId = JSON.parse(userId);
       console.log("Parsed User ID:", parsedUserId);
-      const convertedUserId = parseInt(parsedUserId.id.id, 10);
+      const convertedUserId = parseInt(parsedUserId.id, 10);
       console.log("Converted User ID:", convertedUserId);
       const dataToSend = values;
       const userAppointment = {
