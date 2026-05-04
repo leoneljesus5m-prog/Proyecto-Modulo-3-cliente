@@ -1,0 +1,26 @@
+.nav-item {
+  position: relative;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.icon-button {
+  background: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.icon-button:hover {
+  transform: scale(1.1);
+}

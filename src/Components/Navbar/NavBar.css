@@ -1,48 +1,108 @@
 .header {
-    width: 100%;
-    padding: 1.2rem 2rem;
-    background: transparent;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    user-select: none;
-    z-index: 100;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  user-select: none;
+  z-index: 100;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.navbar a {
-    position: relative;
-    font-size: 1.08rem;
-    font-weight: 500;
-    margin-left: 1rem;
+.navbar {
+  display: flex;        
+  align-items: center;  
+  list-style: none;      
 }
 
-.navbar a::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0.1rem;
-    background: #fff;
-    top: 100%;
-    left: 0;
-    transition: all .3s ease;
+.navbar > a {
+  position: relative;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-left: 1rem;
 }
 
-.navbar a:hover::before {
-    width: 100%;
+.navbar > a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0.1rem;
+  background: #fff;
+  top: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar > a:hover::before {
+  width: 100%;
 }
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .userLogged {
-    margin-left: 1rem;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
+  margin-left: 1rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 58px;
+  width: 300px;
+  transform: translateX(-45%);
+  background-color: rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid #474a4d;
+  border-radius: 8px;
+  padding: 1rem;
+  overflow: hidden;
+  z-index: 100;
+  border: 2px solid white;
+  border-radius: 1.1rem;
+}
+
+.dropdown p {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.menu-item {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  border-radius: 0.2rem;
+  margin: 0.5rem 0;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-button {
+  margin-top: 0.5rem;
+  height: 2.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.menu-button:hover {
+  mix-blend-mode: screen;
 }
